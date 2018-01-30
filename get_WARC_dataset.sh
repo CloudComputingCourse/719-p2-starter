@@ -12,7 +12,8 @@ fi
 # Internal Variables
 WET_PATH_URL=https://commoncrawl.s3.amazonaws.com/crawl-data/CC-MAIN-2016-50/wet.paths.gz
 WET_PATH=wet.paths.gz
-WET_TOP_N_PATHS=$wet_path.top_$1
+WET_PATH_UNZIP=wet.paths
+WET_TOP_N_PATHS=wet.paths.top_$1
 STARTER_CODE_DIR=.
 
 # Run
@@ -20,8 +21,8 @@ echo "Getting WARC paths data"
 wget $WET_PATH_URL
 echo "Unzipping WARC paths data"
 gunzip -k $WET_PATH
-echo "Writing top N of WARC paths file"
-head -"$1" $WET_PATH > $WET_TOP_N_PATHS
+echo "Writing top N of WARC paths file: ${WET_TOP_N_PATHS}"
+head -"$1" $WET_PATH_UNZIP > $WET_TOP_N_PATHS
 echo "Creating HDFS dir"
 /root/hadoop/bin/hdfs dfs -mkdir -p /common_crawl_wet/
 echo "Creating /root/tmp dir"
