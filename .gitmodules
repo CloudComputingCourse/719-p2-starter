@@ -1,0 +1,3 @@
+[submodule "spark-ec2-setup"]
+	path = spark-ec2-setup
+	url = https://github.com/CloudComputingCourse/spark-ec2-setup
