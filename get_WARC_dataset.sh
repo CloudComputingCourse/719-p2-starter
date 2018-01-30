@@ -20,7 +20,7 @@ STARTER_CODE_DIR=.
 echo "Getting WARC paths data"
 wget $WET_PATH_URL
 echo "Unzipping WARC paths data"
-gunzip -k $WET_PATH
+gunzip -k -f $WET_PATH
 echo "Writing top N of WARC paths file: ${WET_TOP_N_PATHS}"
 head -"$1" $WET_PATH_UNZIP > $WET_TOP_N_PATHS
 echo "Creating HDFS dir"
