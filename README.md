@@ -9,3 +9,20 @@ The starter package for 15719 (Spring 2019) Project 2, Part 1
    - <stop-words-files> is the path to the stop-words file.
 - `reference_output_for_test_case_A` is the reference output for the descired statistics computed for test case A in Part 1.
 - `get_WARC_dataset.sh` is a script to download Common Crawl data into HDFS. It takes one parameter, which is the number of first WET files to download. This script streamlines the downloading process.
+
+## Pulling starter updates
+1. Add the student common starter code repository as a remote (needs to be done only once):
+    ```
+    $ git remote add starter git@github.com:cmu15719/p2.1-starter.git
+    ```
+1. Check if there are pending changes:
+    ```
+    $ git fetch starter
+    $ git log master..starter/master
+    ```
+    If the output is not empty - there are pending changes you need to pull.
+1. Pull from the student common starter code repository:
+    ```
+    $ git pull starter master
+    ```
+1. Resolve potential conflicts by merging
