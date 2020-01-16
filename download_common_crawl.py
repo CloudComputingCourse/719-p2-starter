@@ -26,11 +26,7 @@ def load_fsizes():
             fsizes[fname] = int(fsize)
 
 def cache_hit(path):
-    print("PATH: ", path)
     fname = os.path.basename(path)
-    print("FNAME: ", path)
-    print("FSIZE: ", os.stat(path).st_size)
-    print("FSIZE2: ", fsizes[fname])
     if os.path.exists(path) and fname in fsizes and os.stat(path).st_size == fsizes[fname]:
         return True
     else:
