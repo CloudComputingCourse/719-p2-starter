@@ -49,7 +49,7 @@ def download_path_list(path_list):
             log("downloaded: file %s" % file_name)
         else:
             log("cached: file %s" % file_name)
-        os.system(hdfs_exe + " -put " + scratch_dir + file_name + " " + hdfs_base_url + file_name)
+        os.system(hdfs_exe + " -put -f " + scratch_dir + file_name + " " + hdfs_base_url + file_name)
     log("done")
 
 if __name__ == "__main__":

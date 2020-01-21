@@ -20,12 +20,10 @@ STARTER_CODE_DIR=.
 echo "Getting WARC paths data"
 wget $WET_PATH_URL
 echo "Unzipping WARC paths data"
-gunzip -k -f $WET_PATH
+gunzip -f $WET_PATH
 echo "Writing top N of WARC paths file: ${WET_TOP_N_PATHS}"
 head -"$1" $WET_PATH_UNZIP > $WET_TOP_N_PATHS
 echo "Creating HDFS dir"
-/root/hadoop/bin/hdfs dfs -mkdir -p /common_crawl_wet/
-echo "Creating /root/tmp dir"
-mkdir -p /root/tmp
+hdfs dfs -mkdir -p /common_crawl_wet/
 echo "Downloading Rest of WARC Data"
-python $STARTER_CODE_DIR/download_common_crawl.py $WET_TOP_N_PATHS 2
+python3 $STARTER_CODE_DIR/download_common_crawl.py $WET_TOP_N_PATHS 2
