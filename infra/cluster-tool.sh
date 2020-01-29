@@ -4,14 +4,23 @@ set -euo pipefail
 source colors.sh
 
 # @STUDENTS: SET THESE UP
-CLUSTER_NAME=scl
+CLUSTER_NAME=SparkCluster
 CONFIG_PATH=config.yaml
-PEM_PATH=~/15719-s20.pem
+PEM_PATH=undefined
 
 # @STUDENTS: DO NOT CHANGE UNLESS YOU KNOW WHAT YOU'RE DOING
 SCP_PAYLOAD="colors.sh post-setup-master.sh"
 REMOTE_SETUP_SCRIPT="post-setup-master.sh"
 DATA_CACHE_SIZE=200
+
+assert_pem_path() {
+  if [ $PEM_PATH == "undefined" ]; then
+    red "Please edit cluster-tool.sh to set your \$PEM_PATH first"
+    exit -1
+  fi
+}
+
+assert_pem_path
 
 setup_cluster() {
   echo "Setting up Spark Cluster: $CLUSTER_NAME, with config $CONFIG_PATH"
