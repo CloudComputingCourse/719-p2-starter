@@ -14,7 +14,7 @@ REMOTE_SETUP_SCRIPT="post-setup-master.sh"
 DATA_CACHE_SIZE=200
 
 assert_pem_path() {
-  if [ $PEM_PATH == "undefined" ]; then
+  if [[ ! -f $PEM_PATH ]]; then
     red "Please edit cluster-tool.sh to set your \$PEM_PATH first"
     exit -1
   fi
