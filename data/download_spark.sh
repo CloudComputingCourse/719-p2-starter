@@ -9,6 +9,6 @@ spark-submit \
     --deploy-mode client \
     --master spark://$master_url:7077 \
     --total-executor-cores $2 \
-    download.py \
+    download_spark_job.py \
     $1 \
     $2 \
