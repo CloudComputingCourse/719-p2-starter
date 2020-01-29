@@ -13,5 +13,5 @@ spark-submit \
     $1 \
     $2 \
 
-echo "hdfs dfs -ls -l /common_crawl_wet/"
-hdfs dfs -ls -l /common_crawl_wet/
+echo "hdfs dfs -ls /common_crawl_wet/"
+hdfs dfs -ls /common_crawl_wet/
