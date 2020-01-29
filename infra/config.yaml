@@ -10,25 +10,22 @@ provider: ec2
 
 providers:
   ec2:
-    key-name: sparkc4
-    identity-file: /home/ubuntu/15719-s20.pem
+    key-name: <YOUR AWS KEY NAME>
+    identity-file: /path/to/your/aws/key.pem
     ami: ami-062f7200baf2fa504
     user: ec2-user
     region: us-east-1
     instance-type: m4.xlarge
-    spot-price: 0.12
+    spot-price: <SET APPROPRIATE SPOT PRICE>
     tags:
-      - Project,15719.p2
-      - Role,Develop
-      - Type,Project
-      - EOL,20200130
+      - Project,15719.p21
     min-root-ebs-size-gb: 200
     tenancy: default
     ebs-optimized: no
     instance-initiated-shutdown-behavior: terminate
 
 launch:
-    num-slaves: 4
+    num-slaves: <SET NUMSLAVES HERE>
     install-hdfs: True
     install-spark: True
 
