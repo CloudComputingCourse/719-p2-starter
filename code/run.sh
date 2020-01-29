@@ -3,7 +3,7 @@
 #                   $1          $2            $3                  $4                  $5              $6
 
 # -------- BEGIN: DON'T CHANGE --------
-SPARK_SUBMIT="/home/ubuntu/spark-2.4.4-bin-hadoop2.7/bin/spark-submit"
+SPARK_SUBMIT="spark-submit"
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ETL_SCRIPT="$PROJECT_DIR/spark_etl.py"
 # -------- END: DON'T CHANGE --------
