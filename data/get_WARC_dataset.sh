@@ -26,5 +26,12 @@ head -"$1" $WET_PATH_UNZIP > $WET_TOP_N_PATHS
 echo "Creating HDFS dir"
 hdfs dfs -mkdir -p /common_crawl_wet/
 echo "Downloading Rest of WARC Data"
+
 # python3 download_regular.py $WET_TOP_N_PATHS 2
 ./download_spark.sh $WET_TOP_N_PATHS 16
+
+echo "Copying WET names file to code/"
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+cp $WET_TOP_N_PATHS $SCRIPT_DIR/../code/
