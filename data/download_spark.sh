@@ -12,3 +12,6 @@ spark-submit \
     download_spark_job.py \
     $1 \
     $2 \
+
+echo "hdfs dfs -ls -l /common_crawl_wet/"
+hdfs dfs -ls -l /common_crawl_wet/
