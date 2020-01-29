@@ -18,6 +18,8 @@ The starter package for 15719 (Spring 2020) Project 2, Part 1
    - <data-file-names> is the file that contains the names of the WET files to be processed.
    - <stop-words-files> is the path to the stop-words file.
 
+- `data/wet_hashes.txt` and `data/wet_sizes.txt` - sha1sums, and sizes in bytes, for all WET files, for your reference (in case you're worried about data corruption/interrupted downloads).
+
 ## Pulling starter updates
 1. Add the student common starter code repository as a remote (needs to be done only once):
     ```
