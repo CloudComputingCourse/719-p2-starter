@@ -1,0 +1,35 @@
+services:
+  spark:
+    version: 2.4.4
+    download-source: "http://s3.us-east-1.amazonaws.com/cmucc-public/spark-{v}-bin-hadoop2.7.tgz"
+  hdfs:
+    version: 2.8.5
+    download-source: "http://s3.us-east-1.amazonaws.com/cmucc-public/hadoop-{v}.tar.gz"
+
+provider: ec2
+
+providers:
+  ec2:
+    key-name: sparkc4
+    identity-file: /home/ubuntu/15719-s20.pem
+    ami: ami-062f7200baf2fa504
+    user: ec2-user
+    region: us-east-1
+    instance-type: m4.xlarge
+    spot-price: 0.12
+    tags:
+      - Project,15719.p2
+      - Role,Develop
+      - Type,Project
+      - EOL,20200130
+    min-root-ebs-size-gb: 200
+    tenancy: default
+    ebs-optimized: no
+    instance-initiated-shutdown-behavior: terminate
+
+launch:
+    num-slaves: 4
+    install-hdfs: True
+    install-spark: True
+
+debug: false
