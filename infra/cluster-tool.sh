@@ -26,7 +26,7 @@ setup_cluster() {
   echo "Setting up Spark Cluster: $CLUSTER_NAME, with config $CONFIG_PATH"
 
   flintrock --config $CONFIG_PATH launch $CLUSTER_NAME
-  flintrock describe scl --master-hostname-only > ~/.spark_master
+  flintrock describe $CLUSTER_NAME --master-hostname-only > ~/.spark_master
   python3.7 spark_attach_vol.py --cluster-name $CLUSTER_NAME --size $DATA_CACHE_SIZE
 
   SPARK_MASTER=ec2-user@`cat ~/.spark_master`
