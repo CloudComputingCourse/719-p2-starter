@@ -13,6 +13,9 @@ PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ETL_SCRIPT="$PROJECT_DIR/spark_etl.py"
 # -------- END: DON'T CHANGE --------
 
+# Spark job fails if you try to overwrite a pre-existing corpus
+hdfs dfs -rm -r /processed_corpus
+
 # TODO (students): write your script with defined variables
 # Hint: You can ignore the spark flags for p2.1. In p2.2, you will use
 # some flags (--executor-memory, etc) to improve the performance
